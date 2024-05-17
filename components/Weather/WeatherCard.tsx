@@ -11,6 +11,7 @@ export type WeatherCardProps = {
 
 const WeatherGrid = styled('div')(() => ({
     display: 'flex',
+    flexWrap: 'wrap',
     gap: '12px',
 }))
 
@@ -19,6 +20,7 @@ const WeatherBox = styled('div')(({theme}) => ({
     flexDirection: 'column',
     alignItems: 'center',
     flex: 1,
+    minWidth: 'fit-content',
     padding: theme.spacings.xs,
     gap: theme.spacings.xxs,
     backgroundColor: theme.palette.background.paper,
@@ -38,8 +40,8 @@ const WeatherBoxDatum = styled('div')(({theme}) => ({
 export function WeatherCard({location, temperature, windSpeed, humidity}: WeatherCardProps) {
     return (
         <Card>
-            <CardHeader title={location}></CardHeader>
-            <CardContent>
+            <CardHeader title={`Weather - ${location}`}></CardHeader>
+            <CardContent sx={{paddingTop: '0px'}}>
                 <WeatherGrid>
                     <WeatherBox>
                         <WeatherBoxTitle>Temperature</WeatherBoxTitle>

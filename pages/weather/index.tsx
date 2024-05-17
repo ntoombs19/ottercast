@@ -36,22 +36,12 @@ function WeatherPage(props: WeatherCardProps) {
                 metaRobots={['noindex']}
                 canonical='/weather'
             />
-            <LayoutHeader
-                floatingMd
-                switchPoint={0}
-                sx={{ '& .LayoutHeaderContent-center': { overflow: 'visible' } }}
-            >
-                <LayoutTitle
-                    gutterBottom={false}
-                    gutterTop={false}
-                    sx={{ display: { xs: 'none', md: 'flex' } }}
-                >
-                    {/* eslint-disable-next-line react/destructuring-assignment */}
-                    {props.location}
+            <LayoutHeader floatingMd>
+                <LayoutTitle size='small' component='span'>
+                    Weather
                 </LayoutTitle>
             </LayoutHeader>
-
-            <Container maxWidth='sm' sx={{ display: { xs: 'none', md: 'block' } }}>
+            <Container maxWidth='sm' sx={{ marginY: '20px' }}>
                 <WeatherCard {...props} />
             </Container>
         </>
